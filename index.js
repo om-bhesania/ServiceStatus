@@ -1,5 +1,9 @@
 const fs = require("fs");
 const yaml = require("js-yaml");
+
+
+
+
 const colors = require("colors");
 const { status } = require("./utils/status.js");
 const { format } = require("./utils/format.js");
@@ -9,6 +13,8 @@ const {
   ActivityType,
   EmbedBuilder,
 } = require("discord.js");
+const express = require("express");
+require('dotenv').config();
 
 const client = new Client({
   intents: [
@@ -17,8 +23,10 @@ const client = new Client({
     GatewayIntentBits.MessageContent,
   ],
 });
-
-const config = yaml.load(fs.readFileSync("config.yml"));
+const app = express(); 
+const path = require("path");
+const config = yaml.load(fs.readFileSync('config.yml', 'utf8'));
+config.token = process.env.DISCORD_TOKEN;
 const messages = yaml.load(
   fs.readFileSync(`./translations/${config.lang}.yml`)
 );
@@ -135,3 +143,22 @@ const display = async (status) => {
 };
 
 client.login(config.token);
+
+
+
+const publicDirectory = path.join(__dirname, "public");
+
+// Serve static files from the "public" directory.
+app.use(express.static(publicDirectory));
+
+// Define a route to serve the HTML file.
+app.get("/", (req, res) => {
+  res.sendFile(path.join(publicDirectory, "index.html"));
+});
+
+// Start the server on a specified port (e.g., 3000).
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
