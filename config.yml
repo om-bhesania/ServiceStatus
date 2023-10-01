@@ -1,0 +1,11 @@
+name: "TwilightCraft Networks"
+lang: "en"
+config.token: "${process.env.DISCORD_TOKEN}" # Discord bot token
+interval: 5000 # ms
+server: "play.twilightcraft.online"
+
+message:
+  enabled: true
+  channel: "1158005048559804456" # Channel id
+status:
+  enabled: true
