@@ -1,7 +1,7 @@
 name: "TwilightCraft Networks"
 lang: "en"
 config.token: "${process.env.DISCORD_TOKEN}" # Discord bot token
-interval: 5000 # ms
+interval: 10000 # ms
 server: "play.twilightcraft.online"
 
 message:
