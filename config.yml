@@ -1,6 +1,6 @@
-name: "TwilightCraft"
+name: "TwilightCraft Networks"
 lang: "en"
-token: "MTE1ODAwNDcxMDk4OTYzOTgzMg.GvBKv2.Xc1ANsibAR4kPhuQqufcDQr9kQ1iKy7_7v_TQM" # Discord bot token
+token: "MTE1ODAwNDcxMDk4OTYzOTgzMg.GnihN8.faSJSXwyNSGwLWvLA-FL2NnEgcBQ4SxaOXUmhk" # Discord bot token
 interval: 10000 # ms
 server: "play.twilightcraft.online"
 
